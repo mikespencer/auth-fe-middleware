@@ -1,3 +1,8 @@
 src
 coverage
 jest
+webpack.config.js
+jest.config.json
+.babelrc
+.editorconfig
+.eslintrc.js

@@ -1,3 +1,5 @@
+import Cookies from 'js-cookie'
+
 // ACTION TYPES
 export const INIT_AUTH = 'MEETUP_OATH_FE_MIDDLEWARE__INIT_AUTH'
 export const CONFIGURE = 'MEETUP_OATH_FE_MIDDLEWARE__CONFIGURE'
@@ -6,7 +8,7 @@ export const TOKEN_NOT_FOUND = 'MEETUP_OATH_FE_MIDDLEWARE__TOKEN_NOT_FOUND'
 export const REMOVE_TOKEN = 'MEETUP_OATH_FE_MIDDLEWARE__REMOVE_TOKEN'
 
 // MISC CONSTANTS
-export const LOCAL_STORAGE_TOKEN_KEY = 'proAdminOauthToken'
+export const OATH_TOKEN_STORAGE_KEY = 'proAdminOauthToken'
 
 // UTILS
 export const initAuth = ({ clientId, redirectUri, authUrl }) => {
@@ -28,15 +30,18 @@ export const getAuthUrl = ({ clientId, redirectUri, authUrl }) => {
   return `${authUrl}?${authParams}`
 }
 
-const ls = typeof window !== 'undefined' && window.localStorage
 export const getToken = () => (
-  ls ? ls.getItem(LOCAL_STORAGE_TOKEN_KEY) : null
+  Cookies.get(OATH_TOKEN_STORAGE_KEY)
 )
 export const setToken = val => {
-  ls && ls.setItem(LOCAL_STORAGE_TOKEN_KEY, val)
+  Cookies.set(
+    OATH_TOKEN_STORAGE_KEY,
+    val,
+    { expires: 5 * 365 }
+  )
 }
 export const removeToken = () => {
-  ls && ls.removeItem(LOCAL_STORAGE_TOKEN_KEY)
+  Cookies.remove(OATH_TOKEN_STORAGE_KEY)
 }
 
 export const getTokenFromUrl = url => {
@@ -46,14 +51,12 @@ export const getTokenFromUrl = url => {
 
 // THE MIDDLEWARE
 const middleware = ({ clientId, redirectUri, authUrl }) => store => next => action => {
-  console.log('calling oath2 middleware:')
-
   switch (action.type) {
     case INIT_AUTH:
       initAuth({ clientId, redirectUri, authUrl })
       break
     case CONFIGURE:
-      const tokenFromUrl = getTokenFromUrl(window.location.href)
+      const tokenFromUrl = getTokenFromUrl(typeof window !== 'undefined' && window.location.href)
       if (tokenFromUrl) {
         setToken(tokenFromUrl)
       }
