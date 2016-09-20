@@ -1,6 +1,6 @@
 {
   "name": "meetup-auth-fe-middleware",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Redux middleware for Oauth2 connection on the client side. Tokens are stored via cookie.",
   "main": "dist/index.js",
   "scripts": {
@@ -8,6 +8,10 @@
     "lint": "eslint src",
     "prepublish": "npm run bundle",
     "test": "jest -c jest.config.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikespencer/auth-fe-middleware.git"
   },
   "keywords": [],
   "author": "Mike Spencer",
