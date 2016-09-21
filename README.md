@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/mikespencer/auth-fe-middleware.svg?branch=master)](https://travis-ci.org/mikespencer/auth-fe-middleware)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
 
 # meetup-auth-fe-middleware
 
