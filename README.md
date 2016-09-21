@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mikespencer/auth-fe-middleware.svg?branch=master)](https://travis-ci.org/mikespencer/auth-fe-middleware)
+
 # meetup-auth-fe-middleware
 
 Redux middleware for Oauth2 connection on the client side. Tokens are stored in `localStorage`.
