@@ -5,7 +5,7 @@ import authMiddleware, {
   TOKEN_NOT_FOUND,
   REMOVE_TOKEN,
   getAuthUrl,
-  getTokenFromUrl
+  getParamFromUrl
 } from './index'
 
 describe('authMiddleware', () => {
@@ -35,10 +35,10 @@ describe('getAuthUrl', () => {
   })
 })
 
-describe('getTokenFromUrl', () => {
+describe('getParamFromUrl', () => {
   it('should get the token from a given url', () => {
     const token = 'my-token-12345'
     const url = `http://www.example.com#otherParam=true&access_token=${token}&anotherParam=true`
-    expect(getTokenFromUrl(url)).toEqual(token)
+    expect(getParamFromUrl('access_token', url)).toEqual(token)
   })
 })

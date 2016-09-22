@@ -17,7 +17,7 @@ export const initAuth = ({ clientId, redirectUri, authUrl }) => {
     redirectUri,
     authUrl
   })
-  window.location.href = url
+  window.open(url, 'Meetup Oauth', 'height=500,width=500')
 }
 
 export const getAuthUrl = ({ clientId, redirectUri, authUrl }) => {
@@ -44,9 +44,10 @@ export const removeToken = () => {
   Cookies.remove(OATH_TOKEN_STORAGE_KEY)
 }
 
-export const getTokenFromUrl = url => {
-  const accessTokenMatch = /access_token=([^&]*)/.exec(url)
-  return accessTokenMatch && accessTokenMatch[1]
+export const getParamFromUrl = (param, url = window.location.hash) => {
+  const regexp = new RegExp(`${param}=([^&]*)`)
+  const paramValue = regexp.exec(url)
+  return paramValue && paramValue[1]
 }
 
 // THE MIDDLEWARE
@@ -56,9 +57,14 @@ const middleware = ({ clientId, redirectUri, authUrl }) => store => next => acti
       initAuth({ clientId, redirectUri, authUrl })
       break
     case CONFIGURE:
-      const tokenFromUrl = getTokenFromUrl(typeof window !== 'undefined' && window.location.href)
+      const tokenFromUrl = getParamFromUrl('access_token')
+      const errorFromUrl = getParamFromUrl('error')
       if (tokenFromUrl) {
         setToken(tokenFromUrl)
+        window.opener && window.opener.location.reload()
+        window.close()
+      } else if (errorFromUrl) {
+        window.close()
       }
       const token = getToken()
       if (token) {
