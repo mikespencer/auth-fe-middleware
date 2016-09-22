@@ -6,3 +6,4 @@ jest.config.json
 .babelrc
 .editorconfig
 .eslintrc.js
+.travis.yml
