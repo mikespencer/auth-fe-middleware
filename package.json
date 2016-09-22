@@ -1,6 +1,6 @@
 {
   "name": "meetup-auth-fe-middleware",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Redux middleware for Oauth2 connection on the client side. Tokens are stored via cookie.",
   "main": "lib/index.js",
   "scripts": {
@@ -17,6 +17,7 @@
   "author": "Mike Spencer",
   "license": "ISC",
   "devDependencies": {
+    "babel-cli": "^6.14.0",
     "babel-core": "^6.14.0",
     "babel-jest": "^15.0.0",
     "babel-preset-es2015": "^6.14.0",
