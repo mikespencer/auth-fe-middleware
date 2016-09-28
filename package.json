@@ -6,7 +6,9 @@
   "scripts": {
     "bundle": "babel src --out-dir lib --source-maps --ignore test.js",
     "lint": "eslint src",
-    "prepublish": "npm run bundle",
+    "preversion": "npm t && npm run lint",
+    "version": "npm run bundle && git add -A",
+    "postversion": "git push && git push --tags",
     "test": "jest -c jest.config.json"
   },
   "repository": {

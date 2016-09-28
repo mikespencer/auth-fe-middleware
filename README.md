@@ -102,3 +102,14 @@ case REMOVE_TOKEN:
   return { token: null } // state === { token: null }
 // ...
 ```
+
+## Updating this package
+
+1. Make your changes
+2. `npm version major|minor|patch`. (['npm version' docs](https://docs.npmjs.com/cli/version)). This will:
+  1. Run unit tests
+  2. Run eslint
+  3. Update the version number in package.json
+  4. Commit the update and also create a corresponding git tags
+  5. Push the update and tag to GitHub
+3. `npm publish` to push changes to NPM
