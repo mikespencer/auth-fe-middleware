@@ -1,6 +1,6 @@
 {
   "name": "meetup-auth-fe-middleware",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Redux middleware for Oauth2 connection on the client side. Tokens are stored via cookie.",
   "main": "lib/index.js",
   "scripts": {
