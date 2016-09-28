@@ -4,10 +4,11 @@
   "description": "Redux middleware for Oauth2 connection on the client side. Tokens are stored via cookie.",
   "main": "lib/index.js",
   "scripts": {
-    "bundle": "babel src --out-dir lib --source-maps --ignore test.js",
+    "build": "babel src --out-dir lib --source-maps --ignore test.js",
     "lint": "eslint src",
+    "prepublish": "npm run build",
     "preversion": "npm t && npm run lint",
-    "version": "npm run bundle && git add -A",
+    "version": "git add -A",
     "postversion": "git push && git push --tags",
     "test": "jest -c jest.config.json"
   },

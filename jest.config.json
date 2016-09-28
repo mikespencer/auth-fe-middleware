@@ -1,5 +1,6 @@
 {
   "testRegex": "src/.*\\.test\\.js$",
   "coverageDirectory": "<rootDir>/coverage",
-  "moduleFileExtensions": [ "js" ]
+  "moduleFileExtensions": [ "js" ],
+  "collectCoverageFrom": ["src/**/*.js", "!**/*.test.js"]
 }
