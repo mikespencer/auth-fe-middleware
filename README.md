@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/mikespencer/auth-fe-middleware.svg?branch=master)](https://travis-ci.org/mikespencer/auth-fe-middleware)
 [![Coverage Status](https://coveralls.io/repos/github/mikespencer/auth-fe-middleware/badge.svg?branch=master)](https://coveralls.io/github/mikespencer/auth-fe-middleware?branch=master)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
+[![Code Climate](https://codeclimate.com/github/mikespencer/auth-fe-middleware/badges/gpa.svg)](https://codeclimate.com/github/mikespencer/auth-fe-middleware)
 
 # meetup-auth-fe-middleware
 
